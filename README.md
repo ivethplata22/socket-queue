@@ -1,5 +1,3 @@
-<!-- # Socket Server Basico
+# Socket Server Queue
 
-Un servidor de Websockets usando Node, Express y Socket.io
-
-Temas cubiertos en mi curso de Node de cero a experto -->
+Un sistema de tickets que se comunican mediante sockets
