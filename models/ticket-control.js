@@ -49,8 +49,8 @@ class TicketControl {
         this.ultimo += 1;
         const ticket = new Ticket( this.ultimo, null );
         this.tickets.push( ticket );
-        this.guardarDB;
-        return 'Ticket ' + this.tickets.numero;
+        this.guardarDB();
+        return 'Ticket ' + ticket.numero;
     }
 
     atenderTicket( escritorio ) {
