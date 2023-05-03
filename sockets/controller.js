@@ -8,6 +8,7 @@ const socketController = (socket) => {
     });
 
     socket.emit('ultimo-ticket', ticketControl.ultimo);
+    socket.emit('estado-actual', ticketControl.ultimos4);
 
     socket.on('siguiente-ticket', ( payload, callback ) => {
         const siguiente = ticketControl.siguiente();
@@ -21,6 +22,10 @@ const socketController = (socket) => {
             return callback({ ok: false, msg: 'El escritorio es obligatorio' });
 
         const ticket = ticketControl.atenderTicket( escritorio );
+
+        // Notificar cambio en los ultimos 4
+        socket.broadcast.emit('estado-actual', ticketControl.ultimos4);
+
         if( !ticket )
             return callback({ ok: false, msg: 'Ya no hay tickets pendientes' });
         
